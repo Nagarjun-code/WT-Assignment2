@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Operations</title>
+</head>
+<body>
+    <table id="contentTable" border="1">
+        <tr>
+            <th>Heading 1</th>
+            <th>Heading 2</th>
+            <th>Heading 3</th>
+        </tr>
+        <tr>
+            <td>Row 1, Cell 1</td>
+            <td>Row 1, Cell 2</td>
+            <td>Row 1, Cell 3</td>
+        </tr>
+        <tr>
+            <td>Row 2, Cell 1</td>
+            <td>Row 2, Cell 2</td>
+            <td>Row 2, Cell 3</td>
+        </tr>
+    </table>
+    <br>
+    <label for="borderWidth">Border Width:</label>
+    <select id="borderWidth" onchange="changeBorderWidth()">
+        <option value="1">1px</option>
+        <option value="2">2px</option>
+        <option value="3">3px</option>
+    </select>
+    <br><br>
+    <label for="bgColorPicker">Background Color:</label>
+    <input type="color" id="bgColorPicker" onchange="changeTableColors()">
+    <label for="fgColorPicker">Foreground Color:</label>
+    <input type="color" id="fgColorPicker" onchange="changeTableColors()">
+    <br><br>
+    <label for="textAlign">Text Align:</label>
+    <select id="textAlign" onchange="changeTextAlign()">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+    </select>
+
+    <script>
+        function changeBorderWidth() {
+            const borderWidth = document.getElementById('borderWidth').value;
+            document.getElementById('contentTable').style.borderWidth = borderWidth + 'px';
+        }
+
+        function changeTableColors() {
+            const bgColor = document.getElementById('bgColorPicker').value;
+            const fgColor = document.getElementById('fgColorPicker').value;
+            const table = document.getElementById('contentTable');
+
+            table.style.backgroundColor = bgColor;
+            table.style.color = fgColor;
+        }
+
+        function changeTextAlign() {
+            const textAlign = document.getElementById('textAlign').value;
+            const cells = document.querySelectorAll('#contentTable td, #contentTable th');
+
+            cells.forEach(cell => {
+                cell.style.textAlign = textAlign;
+            });
+        }
+    </script>
+</body>
+</html>

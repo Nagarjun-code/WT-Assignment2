@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Number Validation</title>
+</head>
+<body>
+    <input type="text" id="mobileNumber" placeholder="Enter mobile number">
+    <button onclick="validateMobileNumber()">Validate</button>
+    <p id="validationResult"></p>
+
+    <script>
+        function validateMobileNumber() {
+            const mobileNumber = document.getElementById('mobileNumber').value;
+            const pattern = /^[789]\d{9}$/;
+
+            if (pattern.test(mobileNumber)) {
+                document.getElementById('validationResult').innerText = 'Valid mobile number';
+            } else {
+                document.getElementById('validationResult').innerText = 'Invalid mobile number';
+            }
+        }
+    </script>
+</body>
+</html>

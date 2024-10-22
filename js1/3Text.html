@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Operations</title>
+</head>
+<body>
+    <textarea id="textInput" rows="4" cols="50" placeholder="Enter your text here..."></textarea><br><br>
+    <button onclick="performOperations()">Perform Operations</button>
+    <p id="alphaCount">Alphabets: 0</p>
+    <p id="digitCount">Digits: 0</p>
+    <p id="specialCharCount">Special Characters: 0</p>
+    <input type="color" id="bgColorPicker"> Background Color<br>
+    <input type="color" id="fgColorPicker"> Foreground Color<br>
+    <button onclick="changeColors()">Change Colors</button>
+
+    <script>
+        function performOperations() {
+            const text = document.getElementById('textInput').value;
+            const alphaCount = text.replace(/[^a-zA-Z]/g, "").length;
+            const digitCount = text.replace(/[^0-9]/g, "").length;
+            const specialCharCount = text.replace(/[a-zA-Z0-9\s]/g, "").length;
+
+            document.getElementById('alphaCount').innerText = `Alphabets: ${alphaCount}`;
+            document.getElementById('digitCount').innerText = `Digits: ${digitCount}`;
+            document.getElementById('specialCharCount').innerText = `Special Characters: ${specialCharCount}`;
+        }
+
+        function changeColors() {
+            const bgColor = document.getElementById('bgColorPicker').value;
+            const fgColor = document.getElementById('fgColorPicker').value;
+            document.getElementById('textInput').style.backgroundColor = bgColor;
+            document.getElementById('textInput').style.color = fgColor;
+        }
+    </script>
+</body>
+</html>

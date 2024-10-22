@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Number Validation</title>
+</head>
+<body>
+    <input type="text" id="rollNumber" placeholder="Enter roll number">
+    <button onclick="validateRollNumber()">Validate</button>
+    <p id="result"></p>
+
+    <script>
+        function validateRollNumber() {
+            const rollNumber = document.getElementById('rollNumber').value;
+            const year = rollNumber.substring(2, 4);
+            const branch = rollNumber.substring(4, 6);
+            let yearOfStudy, branchName;
+
+            switch (branch) {
+                case 'CS':
+                    branchName = 'Computer Science and Engineering';
+                    break;
+                case 'EC':
+                    branchName = 'Electronics and Communication Engineering';
+                    break;
+                // Add more branches as needed
+                default:
+                    branchName = 'Unknown Branch';
+            }
+
+            switch (year) {
+                case '19':
+                    yearOfStudy = 'final year';
+                    break;
+                case '20':
+                    yearOfStudy = 'third year';
+                    break;
+                // Add more years as needed
+                default:
+                    yearOfStudy = 'unknown year';
+            }
+
+            document.getElementById('result').innerText = `The student belongs to ${yearOfStudy} ${branchName}`;
+        }
+    </script>
+</body>
+</html>
